@@ -10,9 +10,11 @@ class Customer < ApplicationRecord
   validates :introduction, length: { maximum: 50 }
   
   has_many :books, dependent: :destroy
-  has_many :favorites, dependent: :destroy
   # ↓いいね機能のアソシエーション
+  has_many :favorites, dependent: :destroy, through: :books
+  # いいね機能でのランキング
   has_many :favorited_books, through: :favorites, source: :book
+
   
   # バリデーション
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
