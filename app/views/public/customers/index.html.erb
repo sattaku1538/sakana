@@ -20,7 +20,7 @@
               <!--↓いいね合計数表示-->
               <td><strong><%= customer.favorites.count %></strong></td>
               <% if customer_signed_in? %>
-              <td><%= link_to 'ユーザー詳細', public_customers_path(customer), class: "customer_#{customer.id}" %></td>
+              <td><%= link_to 'ユーザー詳細', public_customer_path(customer), class: "customer_#{customer.id}" %></td>
               <% end %>
             </tr>
           <% end %>

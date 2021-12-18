@@ -11,11 +11,12 @@ class Public::CustomersController < ApplicationController
      #  @favorites_count += post.favorites.count
      # end
      # @customers = Customer.includes(:favorites).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size} 
+     @customer = current_customer.id
      @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
     end
     
     def show
-   	 @customer = current_customer
+   	 @customer = Customer.find(params[:id])
      @books = @customer.books
      # 変数を定義し、0を代入。いいねｎ合計を表示。
      @favorites_count = 0

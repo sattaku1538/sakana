@@ -9,9 +9,9 @@ class Admin::CustomersController < ApplicationController
  
     def withdraw
      @customer = Customer.find(params[:id])
-     @customer.update(is_deleted: true)
+     @customer.destroy()
      reset_session
-     flash[admin] = "退会処理を実行いたしました"
+     # flash[admin] = "退会処理を実行いたしました"
      redirect_to admin_root_path
     end
     

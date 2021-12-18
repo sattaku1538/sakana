@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'customers/index'
     resources :books, only: [:show, :destroy]
     resources :customers, only:[:show, :destroy]
-    patch 'customers/withdraw'
+    patch 'customers/withdraw/:id', to: 'customers#withdraw'
   end
   
   namespace :public do
@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
    end
-    resource :customers, only:[:show, :edit, :update]
-    get 'customers/index'
+    resources :customers, only:[:show, :edit, :update, :index]
+    # get 'customers/index'
     get 'customers/unsubscribe'
     patch 'customers/withdraw'
   end

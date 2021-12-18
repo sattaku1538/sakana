@@ -8,6 +8,8 @@ class Admin::BooksController < ApplicationController
   def index
   #   # 投稿したものを表示する。
     @books = Book.all
+    @customer = Customer.find(1)
+    
   end
   
   def destroy
