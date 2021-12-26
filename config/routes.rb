@@ -6,13 +6,18 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'books#index'
     resources :books, only: [:show, :destroy]
+<<<<<<< HEAD
     resources :customers, only:[:show, :destroy, :index]
+=======
+    resources :customers, only:[:show, :destroy]
+>>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
     patch 'customers/withdraw/:id', to: 'customers#withdraw'
   end
 
   namespace :public do
     # ↓いいね、コメント機能
     resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
+<<<<<<< HEAD
       resources :book_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
@@ -23,6 +28,15 @@ Rails.application.routes.draw do
       end
     end
     patch 'customers/withdraw/:id', to: 'customers#withdraw'
+=======
+    resource :favorites, only: [:create, :destroy]
+    resources :book_comments, only: [:create, :destroy]
+   end
+    resources :customers, only:[:show, :edit, :update, :index]
+    # get 'customers/index'
+    get 'customers/unsubscribe'
+    patch 'customers/withdraw'
+>>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
   end
 
   # 顧客用

@@ -16,9 +16,13 @@
                  <!--↓いいね合計数表示-->
                  <td><%= @favorites_count %></td>
               </tr>
+<<<<<<< HEAD
               <% if @customeruser == current_customer %>
               <%= link_to edit_public_customer_path(@customeruser) do %>編集する<i class="far fa-edit"></i><% end %>
               <% end %>
+=======
+              <%= link_to edit_public_customer_path do %>編集する<i class="far fa-edit"></i><% end %>
+>>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
           </table>
 
        <!--↓↓自分が今まで投稿した一覧-->

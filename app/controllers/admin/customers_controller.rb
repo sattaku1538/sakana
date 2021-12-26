@@ -13,8 +13,14 @@ class Admin::CustomersController < ApplicationController
     def withdraw
      @customer = Customer.find(params[:id])
      @customer.destroy()
+<<<<<<< HEAD
      flash[:admin] = "＜不正なユーザーを退会させました。＞"
      redirect_to admin_customers_path
+=======
+     reset_session
+     # flash[admin] = "退会処理を実行いたしました"
+     redirect_to admin_root_path
+>>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
     end
 
     private
