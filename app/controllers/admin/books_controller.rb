@@ -8,12 +8,7 @@ class Admin::BooksController < ApplicationController
   def index
   #   # 投稿したものを表示する。
     @books = Book.all
-<<<<<<< HEAD
     @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
-=======
-    @customer = Customer.find(1)
-    
->>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
   end
 
   def destroy
