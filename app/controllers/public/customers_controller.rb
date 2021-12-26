@@ -2,36 +2,16 @@ class Public::CustomersController < ApplicationController
     before_action :authenticate_customer!,except: [:top, :index]
 
     def index
-<<<<<<< HEAD
      @customer = current_customer
      @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
      @customers = Kaminari.paginate_array(@customers).page(params[:page]).per(10)
-=======
-     # @customers = Customer.all
-     # @customer = Customer.find(params[:id])
-     # @books = @customers.books
-     # # 変数を定義し、0を代入。いいねｎ合計を表示。
-     # @favorites_count = 0
-     # # countメソッドを使い、１つの投稿に結びつくイイねを予め定義しておいた@likes_countに足していく。
-     #  @books.each do |post|
-     #  @favorites_count += post.favorites.count
-     # end
-     # @customers = Customer.includes(:favorites).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size} 
-     @customer = current_customer.id
-     @customers = Customer.includes(:books).sort {|a,b| b.favorited_books.size <=> a.favorited_books.size}
->>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
     end
 
     def show
-<<<<<<< HEAD
    	 @customer = current_customer
    	 @customeruser = Customer.find(params[:id])
      @books = @customeruser.books
      @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
-=======
-   	 @customer = Customer.find(params[:id])
-     @books = @customer.books
->>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
      # 変数を定義し、0を代入。いいねｎ合計を表示。
      @favorites_count = 0
      # countメソッドを使い、１つの投稿に結びつくイイねを予め定義しておいた@likes_countに足していく。

@@ -15,11 +15,6 @@ class Public::BooksController < ApplicationController
   def index
 <<<<<<< HEAD
     @customer = current_customer
-=======
-  #   # 投稿したものを表示する。
-    @customer = current_customer.id
-    @books = Book.all
->>>>>>> 834a4acbd8fefcecc77b845b6f25012e9f710743
   #   # ↓↓いいね数の順番に投稿を表示。
     to  = Time.current.at_end_of_day
     from  = (to - 14.day).at_beginning_of_day
