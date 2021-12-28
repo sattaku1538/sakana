@@ -22,6 +22,7 @@ class Public::BooksController < ApplicationController
         b.favorited_customers.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_customers.includes(:favorites).where(created_at: from...to).size
       }
+    @books = Book.order(created_at: :desc)
     @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
   end
 
