@@ -40,6 +40,7 @@
               <div class="form-group">
               <%= form_with model:[:public, book], local:true do |f| %>
               <%= f.label :explanation, "活動内容の説明" %>
+              <%= link_to 'Editする？', edit_public_book_path(book), class: "btn btn-sm btn-light edit_book_#{book.id}" %></td>
               <%= f.text_area :explanation, class: 'form-control', size: "5x2", readonly: true %>
               <% end %>
               </div>
