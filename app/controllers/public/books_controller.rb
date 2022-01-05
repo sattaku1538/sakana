@@ -31,6 +31,10 @@ class Public::BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
+      tags = Vision.get_image_data(list.image)    
+      tags.each do |tag|
+      list.tags.create(name: tag)
+    end
       flash[:success] = "＜投稿に成功しました。＞"
       redirect_to public_book_path(@book)
     else
