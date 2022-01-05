@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     # ↓いいね、コメント機能
     resources :books, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
       resources :book_comments, only: [:create, :destroy]
+      # resource :tags
       resource :favorites, only: [:create, :destroy]
     end
 

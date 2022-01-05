@@ -31,10 +31,13 @@ class Public::BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.customer_id = current_customer.id
     if @book.save
-      tags = Vision.get_image_data(@book.image)    
+      #Visionモデルに画像を渡すと、その画像の解析し、当てはまるカテゴリーを配列として返す。
+      tags = Vision.get_image_data(@book.image)
+      #該当したタグの配列をeach文で小分けにしてcreateする。
+      #1対多の便利な機能、「親.子供create」と記述すれば、親_idが勝手に保存される。   
       tags.each do |tag|
-      book.tags.create(name: tag)
-    end
+      @book.tags.create(name: tag)
+      end
       flash[:success] = "＜投稿に成功しました。＞"
       redirect_to public_book_path(@book)
     else
