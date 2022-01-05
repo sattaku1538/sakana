@@ -19,7 +19,7 @@
               </button>
               <div class="collapse navbar-collapse flex-column small" id="navbarNavDropdown">
                   <% if customer_signed_in? %>
-                    <span>ようこそ、Bien Venido<%= current_customer.name %> さん！</span>
+                    <span>ようこそ、Bien Venido、<%= current_customer.name %> さん！</span>
                   <% end %>
                   <ul class="navbar-nav d-flex flex-wrap">
                     <% if customer_signed_in? %>
